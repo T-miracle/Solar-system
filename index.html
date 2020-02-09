@@ -69,23 +69,6 @@
                 width: calc(240px - 1px);
             }
 
-            .xiaoxingxingdai {
-                box-sizing: border-box;
-                top: calc(760px / 2 - 320px / 2);
-                left: calc(760px / 2 - 320px / 2);
-                height: calc(320px - 1px);
-                width: calc(320px - 1px);
-                background: radial-gradient(
-                        transparent 0%,
-                        transparent 60%,
-                        rgba(201, 201, 201, 0.05) 62%,
-                        rgba(201, 201, 201, 0.1) 65%,
-                        rgba(201, 201, 201, 0.05) 68%,
-                        transparent 70%
-                );
-                animation: rotate 48s infinite linear;
-            }
-
             .muxing-guidao {
                 top: calc(760px / 2 - 380px / 2);
                 left: calc(760px / 2 - 380px / 2);
@@ -114,8 +97,35 @@
                 width: calc(650px - 1px);
             }
 
+            /*小行星带*/
+            .xiaoxingxingdai {
+                box-sizing: border-box;
+                top: calc(760px / 2 - 320px / 2);
+                left: calc(760px / 2 - 320px / 2);
+                height: calc(320px - 1px);
+                width: calc(320px - 1px);
+                background: radial-gradient(
+                        transparent 0%,
+                        transparent 60%,
+                        rgba(201, 201, 201, 0.05) 62%,
+                        rgba(201, 201, 201, 0.1) 65%,
+                        rgba(201, 201, 201, 0.05) 68%,
+                        transparent 70%
+                );
+                animation: rotate 48s infinite linear;
+            }
+
+            .xiaoxingxing {
+                top: calc(760px / 2 - 280px / 2);
+                left: calc(760px / 2 - 280px / 2);
+                border-radius: 50%;
+                width: 280px;
+                height: 280px;
+                animation: rotate 48s infinite linear;
+            }
+
             /*星球系统*/
-            [class*="-xitong"], .xiaoxingxingdai {
+            [class*="-xitong"], .xiaoxingxingdai, .xiaoxingxing {
                 position: absolute;
             }
 
@@ -366,9 +376,8 @@
                 <div class="huoxing"></div>
             </div>
             <!--小行星带-->
-            <div class="xiaoxingxingdai">
-                <div class="xiaoxingxing"></div>
-            </div>
+            <div class="xiaoxingxingdai"></div>
+            <div class="xiaoxingxing"></div>
             <!--木星-->
             <div class="muxing-guidao"></div>
             <div class="muxing-xitong">
@@ -391,5 +400,26 @@
                 <div class="haiwangxing"></div>
             </div>
         </div>
+
+        <script>
+            /*随机生成小行星*/
+            var xiaoxingxing = '';
+            for (let i = 1800; i >= 0; i--) {
+                /*X轴坐标*/
+                let j = Math.round(Math.random() * 310) - 155;
+                /*Y轴坐标*/
+                let k = Math.round(Math.random() * 310) - 155;
+                /*随机透明度*/
+                let l = Math.random();
+                /*环形判断*/
+                if (j * j + k * k <= 155 * 155) {
+                    xiaoxingxing += (j + 'px ' + k + 'px 0 -139px rgba(255,255,255,' + l + '),')
+                }
+            }
+            /*截掉最后多余的逗号*/
+            xiaoxingxing = xiaoxingxing.substr(0, xiaoxingxing.length - 1);
+            /*添加到页面*/
+            document.getElementsByClassName('xiaoxingxing')[0].style.boxShadow = xiaoxingxing;
+        </script>
     </body>
 </html>

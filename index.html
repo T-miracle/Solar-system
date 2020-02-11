@@ -6,15 +6,14 @@
         <title>Solar System</title>
         <style>
             body {
-                margin: 10px auto;
+                margin: 0;
                 background-color: rgb(34, 39, 56);
-                transition: 1s linear;
             }
 
             .taiyangxi {
                 position: relative;
-                height: 760px;
-                width: 760px;
+                height: 100vh;
+                width: 100vw;
                 margin: 0 auto;
                 background-color: rgb(34, 39, 56);
                 transition: 1s linear;
@@ -22,10 +21,12 @@
 
             .taiyang {
                 position: absolute;
-                top: calc(760px / 2 - 80px / 2);
-                left: calc(760px / 2 - 80px / 2);
-                height: 80px;
-                width: 80px;
+                top: 50%;
+                left: 50%;
+                height: 81px;
+                width: 81px;
+                margin-top: calc(-80px / 2);
+                margin-left: calc(-80px / 2);
                 background: radial-gradient(
                         goldenrod 0%,
                         goldenrod 64%,
@@ -38,74 +39,82 @@
 
             /*星球轨道*/
             [class*="-guidao"] {
+                position: absolute;
                 border: 1px dashed rgba(128, 128, 128, 0.6);
                 border-radius: 50%;
-                position: absolute;
+                top: 50%;
+                left: 50%;
             }
 
             .shuixing-guidao {
-                top: calc(760px / 2 - 90px / 2);
-                left: calc(760px / 2 - 90px / 2);
                 height: calc(90px - 1px);
                 width: calc(90px - 1px);
+                margin-top: -45px;
+                margin-left: -45px;
             }
 
             .jinxing-guidao {
-                top: calc(760px / 2 - 120px / 2);
-                left: calc(760px / 2 - 120px / 2);
                 height: calc(120px - 1px);
                 width: calc(120px - 1px);
+                margin-top: -60px;
+                margin-left: -60px;
             }
 
             .diqiu-guidao {
-                top: calc(760px / 2 - 180px / 2);
-                left: calc(760px / 2 - 180px / 2);
                 height: calc(180px - 1px);
                 width: calc(180px - 1px);
+                margin-top: -90px;
+                margin-left: -90px;
             }
 
             .huoxing-guidao {
-                top: calc(760px / 2 - 240px / 2);
-                left: calc(760px / 2 - 240px / 2);
                 height: calc(240px - 1px);
                 width: calc(240px - 1px);
+                margin-top: -120px;
+                margin-left: -120px;
             }
 
             .muxing-guidao {
-                top: calc(760px / 2 - 380px / 2);
-                left: calc(760px / 2 - 380px / 2);
                 height: calc(380px - 1px);
                 width: calc(380px - 1px);
+                margin-top: -190px;
+                margin-left: -190px;
             }
 
             .tuxing-guidao {
-                top: calc(760px / 2 - 480px / 2);
-                left: calc(760px / 2 - 480px / 2);
                 height: calc(480px - 1px);
                 width: calc(480px - 1px);
+                margin-top: -240px;
+                margin-left: -240px;
             }
 
             .tianwangxing-guidao {
-                top: calc(760px / 2 - 580px / 2);
-                left: calc(760px / 2 - 580px / 2);
                 height: calc(580px - 1px);
                 width: calc(580px - 1px);
+                margin-top: -290px;
+                margin-left: -290px;
             }
 
             .haiwangxing-guidao {
-                top: calc(760px / 2 - 650px / 2);
-                left: calc(760px / 2 - 650px / 2);
                 height: calc(650px - 1px);
                 width: calc(650px - 1px);
+                margin-top: -325px;
+                margin-left: -325px;
             }
 
             /*小行星带*/
+            .xiaoxingxingdai, .xiaoxingxing {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+
             .xiaoxingxingdai {
                 box-sizing: border-box;
-                top: calc(760px / 2 - 320px / 2);
-                left: calc(760px / 2 - 320px / 2);
                 height: calc(320px - 1px);
                 width: calc(320px - 1px);
+                margin-top: -160px;
+                margin-left: -160px;
                 background: radial-gradient(
                         transparent 0%,
                         transparent 60%,
@@ -118,87 +127,90 @@
             }
 
             .xiaoxingxing {
-                top: calc(760px / 2 - 280px / 2);
-                left: calc(760px / 2 - 280px / 2);
                 border-radius: 50%;
                 width: 280px;
                 height: 280px;
+                margin-left: -140px;
+                margin-top: -140px;
                 animation: rotate 48s infinite linear;
             }
 
             /*星球系统*/
-            [class*="-xitong"], .xiaoxingxingdai, .xiaoxingxing {
+            [class*="-xitong"] {
                 position: absolute;
+                top: 50%;
+                left: 50%;
+                transition: 1s;
             }
 
             .shuixing-xitong {
-                top: calc(760px / 2 - 4px / 2);
-                left: calc(760px / 2 - 90px / 2 - 4px / 2);
                 height: 4px;
                 width: 4px;
+                margin-top: calc(-4px / 2);
+                margin-left: calc(-90px / 2 - 4px / 2);
                 transform-origin: calc(90px / 2 + 4px / 2) calc(4px / 2);
                 animation: rotate 4.4s infinite linear;
             }
 
             .jinxing-xitong {
-                top: calc(760px / 2 - 8px / 2);
-                left: calc(760px / 2 - 120px / 2 - 8px / 2);
                 height: 8px;
                 width: 8px;
+                margin-top: calc(-8px / 2);
+                margin-left: calc(-120px / 2 - 8px / 2);
                 transform-origin: calc(120px / 2 + 8px / 2) calc(8px / 2);
                 animation: rotate 11.235s infinite linear;
             }
 
             .diqiu-xitong {
-                top: calc(760px / 2 - 16px / 2);
-                left: calc(760px / 2 - 180px / 2 - 16px / 2);
                 height: 16px;
                 width: 16px;
+                margin-top: calc(-16px / 2);
+                margin-left: calc(-180px / 2 - 16px / 2);
                 transform-origin: calc(180px / 2 + 16px / 2) calc(16px / 2);
                 animation: rotate 18.262s infinite linear;
             }
 
             .huoxing-xitong {
-                top: calc(760px / 2 - 16px / 2);
-                left: calc(760px / 2 - 240px / 2 - 16px / 2);
                 height: 16px;
                 width: 16px;
+                margin-top: calc(-16px / 2);
+                margin-left: calc(-240px / 2 - 16px / 2);
                 transform-origin: calc(240px / 2 + 16px / 2) calc(16px / 2);
                 animation: rotate 34.349s infinite linear;
             }
 
             .muxing-xitong {
-                top: calc(760px / 2 - 40px / 2);
-                left: calc(760px / 2 - 380px / 2 - 40px / 2);
                 height: 40px;
                 width: 40px;
+                margin-top: calc(-40px / 2);
+                margin-left: calc(-380px / 2 - 40px / 2);
                 transform-origin: calc(380px / 2 + 40px / 2) calc(40px / 2);
                 animation: rotate 216.6215s infinite linear;
             }
 
             .tuxing-xitong {
-                top: calc(760px / 2 - 24px / 2);
-                left: calc(760px / 2 - 480px / 2 - 24px / 2);
                 height: 24px;
                 width: 24px;
+                margin-top: calc(-24px / 2);
+                margin-left: calc(-480px / 2 - 24px / 2);
                 transform-origin: calc(480px / 2 + 24px / 2) calc(24px / 2);
                 animation: rotate 541.616s infinite linear;
             }
 
             .tianwangxing-xitong {
-                top: calc(760px / 2 - 20px / 2);
-                left: calc(760px / 2 - 580px / 2 - 20px / 2);
                 height: 20px;
                 width: 20px;
+                margin-top: calc(-20px / 2);
+                margin-left: calc(-580px / 2 - 20px / 2);
                 transform-origin: calc(580px / 2 + 20px / 2) calc(20px / 2);
                 animation: rotate 1539.95s infinite linear;
             }
 
             .haiwangxing-xitong {
-                top: calc(760px / 2 - 18px / 2);
-                left: calc(760px / 2 - 650px / 2 - 18px / 2);
                 height: 18px;
                 width: 18px;
+                margin-top: calc(-18px / 2);
+                margin-left: calc(-650px / 2 - 18px / 2);
                 transform-origin: calc(650px / 2 + 18px / 2) calc(18px / 2);
                 animation: rotate 3009.6s infinite linear;
             }
@@ -353,7 +365,7 @@
                 width: 72px;
                 height: 36px;
                 position: fixed;
-                bottom: 40px;
+                bottom: 20px;
                 left: calc(100vw / 2 - 72px / 2);
                 line-height: 36px;
                 text-align: center;
@@ -370,6 +382,7 @@
                 padding: 15px;
                 height: 200px;
                 width: 400px;
+                max-width: 100vw;
                 color: rgba(255, 255, 255, 0.5);
                 border-radius: 8px;
                 box-shadow: 0 0 8px rgba(0, 0, 0, 1);
@@ -377,7 +390,7 @@
             }
 
             .hide {
-                bottom: 80px !important;
+                bottom: 60px !important;
             }
 
             #option table {
@@ -402,9 +415,23 @@
                 height: 24px;
             }
 
+            #option button {
+                background-color: #0000;
+                border: transparent;
+                color: rgba(255, 255, 255, 0.5);
+                padding-left: 2px;
+                padding-right: 2px;
+            }
+
+            #option button:hover {
+                color: orangered;
+                cursor: pointer;
+            }
+
             /*颜色选取*/
             #cc div:hover {
                 box-shadow: 0 0 3px deepskyblue;
+                cursor: pointer;
             }
 
             #cc div:nth-child(1) {
@@ -421,10 +448,6 @@
 
             #cc div:nth-child(4) {
                 background-color: rgb(43, 43, 43);
-            }
-
-            table span:hover {
-                background-color: rgba(0, 191, 255, 0.05);
             }
 
             /*语言切换*/
@@ -497,7 +520,11 @@
         </div>
 
         <div id="optionBtn" onclick="popUp()">
-            <svg t="1581348631156" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1959" width="32" height="32"><path d="M1021.28261 737.254254 512.697383 228.665956 4.114203 737.254254 65.145208 798.285259 512.697383 350.727966 960.251605 798.280142Z" p-id="1960" fill="#e6e6e6"></path></svg>
+            <svg t="1581348631156" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 p-id="1959" width="32" height="32">
+                <path d="M1021.28261 737.254254 512.697383 228.665956 4.114203 737.254254 65.145208 798.285259 512.697383 350.727966 960.251605 798.280142Z"
+                      p-id="1960" fill="#aaaaaa50"></path>
+            </svg>
         </div>
 
         <!--选项面板-->
@@ -518,17 +545,20 @@
                     <td class="zh">小行星数量</td>
                     <td class="en" style="display: none">Asteroid Number</td>
                     <td>
-                        <span onclick="RandomXiaoxingxing(0)">0</span>&nbsp;|&nbsp;<span
-                            onclick="RandomXiaoxingxing(1200)">200</span>&nbsp;|&nbsp;<span
-                            onclick="RandomXiaoxingxing(2400)">400</span>&nbsp;|&nbsp;<span
-                            onclick="RandomXiaoxingxing(3600)">600</span>
+                        <button onclick="RandomXiaoxingxing(0)">0</button>&nbsp;|&nbsp;<button
+                            onclick="RandomXiaoxingxing(1200)">200
+                    </button>&nbsp;|&nbsp;<button
+                            onclick="RandomXiaoxingxing(2400)">400
+                    </button>&nbsp;|&nbsp;<button
+                            onclick="RandomXiaoxingxing(3600)">600
+                    </button>
                     </td>
                 </tr>
                 <tr>
                     <td class="zh">星球随机位</td>
                     <td class="en" style="display: none">Random Position</td>
                     <td>
-                        <div onclick="RandomPosition()"> click</div>
+                        <button onclick="RandomPosition()">click</button>
                     </td>
                 </tr>
             </table>
@@ -563,85 +593,72 @@
 
             /*随机星球位置*/
             function RandomPosition() {
+                let windowHeight = document.body.clientHeight;
+                let windowWidth = document.body.clientWidth;
+
                 let num1 = Math.random() * 45;
-                let x1 = (Math.random() > 0.5 ? 1 : -1) * num1;
-                let y1 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(45 * 45 - num1 * num1);
-                let top1 = 760 / 2 - 4 / 2 - x1;
-                let left1 = 760 / 2 - 4 / 2 - y1;
+                let x1 = (Math.random() > 0.5 ? 1 : -1) * num1 - 4 / 2;
+                let y1 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(45 * 45 - num1 * num1) - 4 / 2;
                 let shui = document.getElementsByClassName('shuixing-xitong')[0].style;
-                shui.top = top1 + 'px';
-                shui.left = left1 + 'px';
-                shui.transformOrigin = (y1 + 4 / 2) + 'px ' + (x1 + 4 / 2) + 'px';
+                shui.marginTop = x1 + 'px';
+                shui.marginLeft = y1 + 'px';
+                shui.transformOrigin = (-y1) + 'px ' + (-x1) + 'px';
 
                 let num2 = Math.random() * 60;
-                let x2 = (Math.random() > 0.5 ? 1 : -1) * num2;
-                let y2 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(60 * 60 - num2 * num2);
-                let top2 = 760 / 2 - 8 / 2 - x2;
-                let left2 = 760 / 2 - 8 / 2 - y2;
+                let x2 = (Math.random() > 0.5 ? 1 : -1) * num2 - 8 / 2;
+                let y2 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(60 * 60 - num2 * num2) - 8 / 2;
                 let jin = document.getElementsByClassName('jinxing-xitong')[0].style;
-                jin.top = top2 + 'px';
-                jin.left = left2 + 'px';
-                jin.transformOrigin = (y2 + 8 / 2) + 'px ' + (x2 + 8 / 2) + 'px';
+                jin.marginTop = x2 + 'px';
+                jin.marginLeft = y2 + 'px';
+                jin.transformOrigin = (-y2) + 'px ' + (-x2) + 'px';
 
                 let num3 = Math.random() * 90;
-                let x3 = (Math.random() > 0.5 ? 1 : -1) * num3;
-                let y3 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(90 * 90 - num3 * num3);
-                let top3 = 760 / 2 - 16 / 2 - x3;
-                let left3 = 760 / 2 - 16 / 2 - y3;
+                let x3 = (Math.random() > 0.5 ? 1 : -1) * num3 - 16 / 2;
+                let y3 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(90 * 90 - num3 * num3) - 16 / 2;
                 let di = document.getElementsByClassName('diqiu-xitong')[0].style;
-                di.top = top3 + 'px';
-                di.left = left3 + 'px';
-                di.transformOrigin = (y3 + 16 / 2) + 'px ' + (x3 + 16 / 2) + 'px';
+                di.marginTop = x3 + 'px';
+                di.marginLeft = y3 + 'px';
+                di.transformOrigin = (-y3) + 'px ' + (-x3) + 'px';
 
                 let num4 = Math.random() * 120;
-                let x4 = (Math.random() > 0.5 ? 1 : -1) * num4;
-                let y4 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(120 * 120 - num4 * num4);
-                let top4 = 760 / 2 - 16 / 2 - x4;
-                let left4 = 760 / 2 - 16 / 2 - y4;
+                let x4 = (Math.random() > 0.5 ? 1 : -1) * num4 - 16 / 2;
+                let y4 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(120 * 120 - num4 * num4) - 16 / 2;
                 let huo = document.getElementsByClassName('huoxing-xitong')[0].style;
-                huo.top = top4 + 'px';
-                huo.left = left4 + 'px';
-                huo.transformOrigin = (y4 + 16 / 2) + 'px ' + (x4 + 16 / 2) + 'px';
+                huo.marginTop = x4 + 'px';
+                huo.marginLeft = y4 + 'px';
+                huo.transformOrigin = (-y4) + 'px ' + (-x4) + 'px';
 
                 let num5 = Math.random() * 190;
-                let x5 = (Math.random() > 0.5 ? 1 : -1) * num5;
-                let y5 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(190 * 190 - num5 * num5);
-                let top5 = 760 / 2 - 40 / 2 - x5;
-                let left5 = 760 / 2 - 40 / 2 - y5;
+                let x5 = (Math.random() > 0.5 ? 1 : -1) * num5 - 40 / 2;
+                let y5 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(190 * 190 - num5 * num5) - 40 / 2;
                 let mu = document.getElementsByClassName('muxing-xitong')[0].style;
-                mu.top = top5 + 'px';
-                mu.left = left5 + 'px';
-                mu.transformOrigin = (y5 + 40 / 2) + 'px ' + (x5 + 40 / 2) + 'px';
+                mu.marginTop = x5 + 'px';
+                mu.marginLeft = y5 + 'px';
+                mu.transformOrigin = (-y5) + 'px ' + (-x5) + 'px';
 
                 let num6 = Math.random() * 240;
-                let x6 = (Math.random() > 0.5 ? 1 : -1) * num6;
-                let y6 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(240 * 240 - num6 * num6);
-                let top6 = 760 / 2 - 24 / 2 - x6;
-                let left6 = 760 / 2 - 24 / 2 - y6;
+                let x6 = (Math.random() > 0.5 ? 1 : -1) * num6 - 24 / 2;
+                let y6 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(240 * 240 - num6 * num6) - 24 / 2;
                 let tu = document.getElementsByClassName('tuxing-xitong')[0].style;
-                tu.top = top6 + 'px';
-                tu.left = left6 + 'px';
-                tu.transformOrigin = (y6 + 24 / 2) + 'px ' + (x6 + 24 / 2) + 'px';
+                tu.marginTop = x6 + 'px';
+                tu.marginLeft = y6 + 'px';
+                tu.transformOrigin = (-y6) + 'px ' + (-x6) + 'px';
 
                 let num7 = Math.random() * 290;
-                let x7 = (Math.random() > 0.5 ? 1 : -1) * num7;
-                let y7 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(290 * 290 - num7 * num7);
-                let top7 = 760 / 2 - 20 / 2 - x7;
-                let left7 = 760 / 2 - 20 / 2 - y7;
+                let x7 = (Math.random() > 0.5 ? 1 : -1) * num7 - 20 / 2;
+                let y7 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(290 * 290 - num7 * num7) - 20 / 2;
                 let tian = document.getElementsByClassName('tianwangxing-xitong')[0].style;
-                tian.top = top7 + 'px';
-                tian.left = left7 + 'px';
-                tian.transformOrigin = (y7 + 20 / 2) + 'px ' + (x7 + 20 / 2) + 'px';
+                tian.marginTop = x7 + 'px';
+                tian.marginLeft = y7 + 'px';
+                tian.transformOrigin = (-y7) + 'px ' + (-x7) + 'px';
 
                 let num8 = Math.random() * 325;
-                let x8 = (Math.random() > 0.5 ? 1 : -1) * num8;
-                let y8 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(325 * 325 - num8 * num8);
-                let top8 = 760 / 2 - 18 / 2 - x8;
-                let left8 = 760 / 2 - 18 / 2 - y8;
+                let x8 = (Math.random() > 0.5 ? 1 : -1) * num8 - 18 / 2;
+                let y8 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(325 * 325 - num8 * num8) - 18 / 2;
                 let hai = document.getElementsByClassName('haiwangxing-xitong')[0].style;
-                hai.top = top8 + 'px';
-                hai.left = left8 + 'px';
-                hai.transformOrigin = (y8 + 18 / 2) + 'px ' + (x8 + 18 / 2) + 'px';
+                hai.marginTop = x8 + 'px';
+                hai.marginLeft = y8 + 'px';
+                hai.transformOrigin = (-y8) + 'px ' + (-x8) + 'px';
             }
 
             /*背景颜色*/
@@ -671,7 +688,6 @@
 
             /*弹出面板*/
             function popUp() {
-                console.log(document.getElementById('option'))
                 document.getElementById('option').classList.toggle('hide');
             }
         </script>

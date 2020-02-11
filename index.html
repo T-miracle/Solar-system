@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Solar System</title>
         <style>
-            html,body {
+            html, body {
                 margin: 0;
                 height: 100%;
                 width: 100%;
@@ -101,10 +101,10 @@
             }
 
             .haiwangxing-guidao {
-                height: calc(650px - 1px);
-                width: calc(650px - 1px);
-                margin-top: -325px;
-                margin-left: -325px;
+                height: calc(680px - 1px);
+                width: calc(680px - 1px);
+                margin-top: -340px;
+                margin-left: -340px;
             }
 
             /*小行星带*/
@@ -116,16 +116,17 @@
 
             .xiaoxingxingdai {
                 box-sizing: border-box;
-                height: calc(320px - 1px);
-                width: calc(320px - 1px);
-                margin-top: -160px;
-                margin-left: -160px;
+                height: calc(330px - 1px);
+                width: calc(330px - 1px);
+                margin-top: -165px;
+                margin-left: -165px;
+                border-radius: 50%;
                 background: radial-gradient(
                         transparent 0%,
                         transparent 60%,
-                        rgba(201, 201, 201, 0.05) 62%,
-                        rgba(201, 201, 201, 0.1) 65%,
-                        rgba(201, 201, 201, 0.05) 68%,
+                        rgba(255, 255, 255, 0.01) 60%,
+                        rgba(255, 255, 255, 0.05) 65%,
+                        rgba(255, 255, 255, 0.01) 70%,
                         transparent 70%
                 );
                 animation: rotate 48s infinite linear;
@@ -151,8 +152,8 @@
             .shuixing-xitong {
                 height: 4px;
                 width: 4px;
-                margin-top: calc(-4px / 2);
-                margin-left: calc(-90px / 2 - 4px / 2);
+                margin-top: calc(-4px / 2 + 1px / 2);
+                margin-left: calc(-90px / 2 - 4px / 2 + 1px / 2);
                 transform-origin: calc(90px / 2 + 4px / 2) calc(4px / 2);
                 animation: rotate 4.4s infinite linear;
             }
@@ -215,8 +216,8 @@
                 height: 18px;
                 width: 18px;
                 margin-top: calc(-18px / 2);
-                margin-left: calc(-650px / 2 - 18px / 2);
-                transform-origin: calc(650px / 2 + 18px / 2) calc(18px / 2);
+                margin-left: calc(-680px / 2 - 18px / 2);
+                transform-origin: calc(680px / 2 + 18px / 2) calc(18px / 2);
                 animation: rotate 3009.6s infinite linear;
             }
 
@@ -394,7 +395,7 @@
                 transition: 1s ease-in-out;
             }
 
-            .hide {
+            .optionHide {
                 bottom: 60px !important;
             }
 
@@ -468,11 +469,30 @@
                 color: rgba(255, 255, 255, 0.5);
                 background-color: rgba(255, 255, 255, 0);
             }
+
+            /*背景星星*/
+            .xingxing {
+                height: 1px;
+                width: 1px;
+                background-color: transparent;
+                z-index: 1000;
+                animation: toTop 36s infinite linear;
+            }
+
+            @keyframes toTop {
+                0% {
+                    transform: translateY(0);
+                }
+                100% {
+                    transform: translateY(-100vh);
+                }
+            }
         </style>
     </head>
     <body>
         <!--太阳系系统-->
         <div class="taiyangxi">
+            <div class="xingxing"></div>
             <!--太阳-->
             <div class="taiyang"></div>
             <!--水星-->
@@ -551,11 +571,11 @@
                     <td class="en" style="display: none">Asteroid Number</td>
                     <td>
                         <button onclick="RandomXiaoxingxing(0)">0</button>&nbsp;|&nbsp;<button
-                            onclick="RandomXiaoxingxing(1200)">200
+                            onclick="RandomXiaoxingxing(1200)">100
                     </button>&nbsp;|&nbsp;<button
-                            onclick="RandomXiaoxingxing(2400)">400
+                            onclick="RandomXiaoxingxing(2400)">200
                     </button>&nbsp;|&nbsp;<button
-                            onclick="RandomXiaoxingxing(3600)">600
+                            onclick="RandomXiaoxingxing(3600)">400
                     </button>
                     </td>
                 </tr>
@@ -573,20 +593,25 @@
             /*初始化*/
             window.onload = function () {
                 RandomXiaoxingxing(2400);
+                RandomXingxing(240);
             };
 
-            /*随机生成小行星 num：随机小行星数量*/
+            window.onresize = function () {
+                RandomXingxing(240);
+            };
+
+            /*随机生成小行星*/
             function RandomXiaoxingxing(num) {
                 var xiaoxingxing = '';
                 for (let i = num; i >= 0; i--) {
                     /*X轴坐标*/
-                    let j = Math.round(Math.random() * 310) - 155;
+                    let j = Math.round(Math.random() * 360) - 180;
                     /*Y轴坐标*/
-                    let k = Math.round(Math.random() * 310) - 155;
+                    let k = Math.round(Math.random() * 360) - 180;
                     /*随机透明度*/
                     let l = Math.random() * 0.6;
                     /*环形判断*/
-                    if (j * j + k * k <= 155 * 155) {
+                    if (j * j + k * k <= 160 * 160) {
                         xiaoxingxing += (j + 'px ' + k + 'px 0 -139px rgba(255,255,255,' + l + '),')
                     }
                 }
@@ -596,17 +621,41 @@
                 document.getElementsByClassName('xiaoxingxing')[0].style.boxShadow = xiaoxingxing;
             }
 
-            /*随机星球位置*/
-            function RandomPosition() {
+            /*随机生成背景星星*/
+            function RandomXingxing(num) {
                 let windowHeight = document.body.clientHeight;
                 let windowWidth = document.body.clientWidth;
+                var xingxing = '';
+                for (let i = num; i >= 0; i--) {
+                    /*X轴坐标*/
+                    let j = Math.round(Math.random() * windowWidth);
+                    /*Y轴坐标*/
+                    let k = Math.round(Math.random() * windowHeight);
+                    /*阴影大小*/
+                    let n = Math.round(Math.random() * 0.6);
+                    /*随机透明度*/
+                    let l = Math.random() * 0.5;
+                    /*添加阴影*/
+                    for (let m = 0 ; m < 2; m++) {
+                        xingxing += (j + 'px ' + k + 'px 0 ' + n + 'px rgba(255,255,255,' + l + '),');
+                        xingxing += (j + 'px ' + (windowHeight + k) + 'px 0 ' + n + 'px rgba(255,255,255,' + l + '),');
+                    }
+                }
+                /*截掉最后多余的逗号*/
+                xingxing = xingxing + xingxing.substr(0, xingxing.length - 1);
+                /*添加到页面*/
+                document.getElementsByClassName('xingxing')[0].style.boxShadow = xingxing;
+            }
+
+            /*随机星球位置*/
+            function RandomPosition() {
 
                 let num1 = Math.random() * 45;
                 let x1 = (Math.random() > 0.5 ? 1 : -1) * num1 - 4 / 2;
                 let y1 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(45 * 45 - num1 * num1) - 4 / 2;
                 let shui = document.getElementsByClassName('shuixing-xitong')[0].style;
-                shui.marginTop = x1 + 'px';
-                shui.marginLeft = y1 + 'px';
+                shui.marginTop = x1 + 1 / 2 + 'px';
+                shui.marginLeft = y1 + 1 / 2 + 'px';
                 shui.transformOrigin = (-y1) + 'px ' + (-x1) + 'px';
 
                 let num2 = Math.random() * 60;
@@ -657,9 +706,9 @@
                 tian.marginLeft = y7 + 'px';
                 tian.transformOrigin = (-y7) + 'px ' + (-x7) + 'px';
 
-                let num8 = Math.random() * 325;
+                let num8 = Math.random() * 340;
                 let x8 = (Math.random() > 0.5 ? 1 : -1) * num8 - 18 / 2;
-                let y8 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(325 * 325 - num8 * num8) - 18 / 2;
+                let y8 = (Math.random() > 0.5 ? 1 : -1) * Math.sqrt(340 * 340 - num8 * num8) - 18 / 2;
                 let hai = document.getElementsByClassName('haiwangxing-xitong')[0].style;
                 hai.marginTop = x8 + 'px';
                 hai.marginLeft = y8 + 'px';
@@ -693,7 +742,7 @@
 
             /*弹出面板*/
             function popUp() {
-                document.getElementById('option').classList.toggle('hide');
+                document.getElementById('option').classList.toggle('optionHide');
             }
         </script>
     </body>

@@ -1,6 +1,6 @@
 # 太阳系（Solar-system）
 
-纯CSS实现-太阳系星球运动
+CSS + JS 实现：太阳系星球运动
 
 <img src="Solar-system.png" alt="Solar-system" style="max-width:480px;max-height:480px;">
 

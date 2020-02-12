@@ -28,10 +28,10 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                height: 81px;
-                width: 81px;
-                margin-top: calc(-80px / 2);
-                margin-left: calc(-80px / 2);
+                height: calc(70px + 1px);
+                width: calc(70px + 1px);
+                margin-top: calc(-70px / 2);
+                margin-left: calc(-70px / 2);
                 background: radial-gradient(
                         goldenrod 0%,
                         goldenrod 64%,
@@ -371,11 +371,29 @@
                 width: 72px;
                 height: 36px;
                 position: fixed;
-                bottom: 20px;
+                bottom: 10px;
                 left: calc(100vw / 2 - 72px / 2);
                 line-height: 36px;
                 text-align: center;
                 color: white;
+                transition: 0.5s linear;
+                animation: opacity 3.6s ease-in-out infinite;
+            }
+
+            .optionBtnHide {
+                transform: rotateX(-180deg);
+            }
+
+            @keyframes opacity {
+                0% {
+                    opacity: 0.8;
+                }
+                50% {
+                    opacity: 0.05;
+                }
+                100% {
+                    opacity: 0.8;
+                }
             }
 
             /*选项面板*/
@@ -396,7 +414,7 @@
             }
 
             .optionHide {
-                bottom: 60px !important;
+                bottom: 50px !important;
             }
 
             #option table {
@@ -544,11 +562,11 @@
             </div>
         </div>
 
-        <div id="optionBtn" onclick="popUp()">
+        <div id="optionBtn" onclick="popUp(this)">
             <svg t="1581348631156" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  p-id="1959" width="32" height="32">
                 <path d="M1021.28261 737.254254 512.697383 228.665956 4.114203 737.254254 65.145208 798.285259 512.697383 350.727966 960.251605 798.280142Z"
-                      p-id="1960" fill="#aaaaaa50"></path>
+                      p-id="1960" fill="#ffffff"></path>
             </svg>
         </div>
 
@@ -740,7 +758,8 @@
             }
 
             /*弹出面板*/
-            function popUp() {
+            function popUp(btn) {
+                btn.classList.toggle('optionBtnHide');
                 document.getElementById('option').classList.toggle('optionHide');
             }
         </script>
